@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path');
 const http = require('http');
 const bodyParser = require('body-parser');
+const socketIO = require('socket.io');
 
 // Get our API routes
 const api = require('./server/routes/api');
@@ -38,3 +39,10 @@ const server = http.createServer(app);
  * Listen on provided port, on all network interfaces.
  */
 server.listen(port, () => console.log(`API running on localhost:${port}`));
+
+const io = socketIO(server);
+console.log('started socket');
+io.on('connection', (socket) => {
+  console.log('Client connected');
+  socket.on('disconnect', () => console.log('Client disconnected'));
+});

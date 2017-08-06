@@ -9,7 +9,7 @@ export class ChatWindowComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit() { 
   }
 
 }
