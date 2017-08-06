@@ -4,7 +4,8 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "dev": "ng build--watch && node server.js",
+    "start": "node server.js",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
@@ -22,8 +23,11 @@
     "@angular/platform-browser-dynamic": "^4.0.0",
     "@angular/router": "^4.0.0",
     "body-parser": "^1.17.2",
+    "bootstrap": "^4.0.0-alpha.6",
     "core-js": "^2.4.1",
     "express": "^4.15.3",
+    "firebase-admin": "^5.1.0",
+    "font-awesome": "^4.7.0",
     "rxjs": "^5.1.0",
     "zone.js": "^0.8.4"
   },
