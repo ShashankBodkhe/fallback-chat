@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import * as io from 'socket.io-client';
 
 @Component({
   selector: 'app-root',
@@ -8,10 +7,6 @@ import * as io from 'socket.io-client';
 })
 export class AppComponent implements OnInit {
     ngOnInit(): void {
-      let socket = io();
-      socket.on('time', function(timeString) {
-        console.log('Server time: ' + timeString);
-      });
     }
 
   title = 'app';

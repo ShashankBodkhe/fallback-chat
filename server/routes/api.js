@@ -13,11 +13,15 @@ router.post('/', (req, res) => {
 function processRequest(query,callback) {
 
 let request = apiai_client.textRequest(query , {
-  sessionId: 'testSession'
+  sessionId: Math.floor(Math.random() * 65465132)
 });
- 
+
 request.on('response', (response) => {
-  callback(response.result);
+  if(response.result.metadata && response.result.metadata.intentName === "Default Fallback Intent"){
+    callback({'source':'server','fallback':true});
+  }else{
+    callback(response.result);
+  }
 });
  
 request.on('error', (error) => {
