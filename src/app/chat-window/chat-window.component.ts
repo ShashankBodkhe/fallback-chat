@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import * as io from 'socket.io-client';
 
@@ -9,42 +9,38 @@ import * as io from 'socket.io-client';
 })
 export class ChatWindowComponent implements OnInit {
 
+  @ViewChild('chatMessage') input;
   fallBack = true;
   socket;
+  chat_messages=[];
 
-  constructor(private http: HttpClient) { 
-  
+  constructor(private http: HttpClient) {
+
   }
 
-  ngOnInit() { 
+  ngOnInit() {
     if(this.socket && this.socket.username){
 
     }else{
       this.socket = io.connect();
-      
+
     }
-  
+
     this.socket.on('socket_initialized', (info) => {
       let socket = this.socket;
       socket.username = info.username;
     });
-    
+
     this.socket.on('get_message',(message)=>{
-      if(message.sender != this.socket.username) {
-        console.log('new message from :' + message.sender);
-        console.log('new message is :' + message.query);
-      }
+      this.chat_messages.push(message);
     });
   }
 
 
   sendMessage(message){
-    const body = {query : message,sender:this.socket.username};
-    if(!this.fallBack) {
-
-    }else {
-      this.socket.emit('new_message',body);
-    }
+    let body = {query : message,sender:this.socket.username};
+    this.socket.emit('new_message',body);
+    this.input.nativeElement.value = '';
   }
 
 }

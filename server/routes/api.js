@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const apiai = require('apiai');
-const apiai_client = apiai(process.env.CLIENT_API_KEY);
+const apiai_client = apiai(process.env.CLIENT_API_KEY || "testing");
 
 router.post('/', (req, res) => {
   let query = req.body.query;
@@ -23,11 +23,11 @@ request.on('response', (response) => {
     callback(response.result);
   }
 });
- 
+
 request.on('error', (error) => {
   callback("something went wrong");
 });
- 
+
 request.end();
 
 }

@@ -12,7 +12,8 @@
 
 .chat-container {
     height:78vh;
-   
+    max-height: 78vh;
+    overflow:auto;
 }
 
 .chat {
