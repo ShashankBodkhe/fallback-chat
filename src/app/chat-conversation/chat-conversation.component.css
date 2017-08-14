@@ -1,3 +1,37 @@
+ul {
+  padding: 20px;
+  list-style: none;
+}
+
 .self {
-  background:green;
+  float:right;
+}
+
+.other {
+  float: left;
+}
+
+.self, .other {
+  margin-bottom: 15px;
+  max-width: 60%;
+}
+
+.self > li {
+  background: #93c5c1;
+  color: white;
+}
+
+.message {
+  padding:10px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+.self > .message {
+  border-radius:10px;
+  border-top-right-radius:0;
+}
+
+.other > .message {
+  border-radius:10px;
+  border-top-left-radius:0;
 }

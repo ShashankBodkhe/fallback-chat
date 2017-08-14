@@ -1,52 +1,43 @@
 .chat-window {
-    margin:5vh 0;
-    height:90vh;
-    box-shadow: 2px 2px 2px;
+    background: #fbf8f4;
+    border-radius: 9px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    margin-top: 15px;
+    height:calc(100vh - 40px);
+    font-family: Panton,sans-serif;
 }
 
 .header {
-    height:5vh;
-    max-height:30px;
-    background: cyan;
+    height: 2em;
+    font-size: 1.2em;
+    padding: 5px;
+    color:#626b7b;
+}
+
+.header i {
+    color:#8fc2be;
+    font-size: 1.5em;
+    cursor: pointer;
 }
 
 .chat-container {
-    height:78vh;
-    max-height: 78vh;
-    overflow:auto;
-}
-
-.chat {
-    width:100%;
+  height:calc(100vh - 4em - 55px);
+  overflow: auto;
 }
 
 .chat-input {
-    height:5vh;
-    min-height: 1.5em;
+    height: 2em;
 }
-
-.card {
-  background: #fff;
-  border-radius: 2px;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-}
-
-.card-1:hover {
-  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-}
-
 
 #custom-chat-input{
-    padding: 3px;
-    margin-bottom:2vh;
-    border: solid 1px #E4E4E4;
-    border-radius: 2px;
-    background-color: #fff;
+    border: none;
+    background: transparent;
+    color: #8fc2be;
 }
 
 #custom-chat-input input{
     border: 0;
-    box-shadow: none;
+    background: transparent
 }
 
 #custom-chat-input button{
@@ -60,7 +51,7 @@
 }
 
 #custom-chat-input button:hover {
-    color: orangered;
+    color: #8fc2be;
     cursor: pointer;
 }
 

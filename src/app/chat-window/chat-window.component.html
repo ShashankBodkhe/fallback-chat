@@ -1,10 +1,9 @@
 <div class="row chat-window card">
   <div class="col-md-12">
-    <div class="row">
-      <div class="header col-md-12">
-        Welcome, Customer
+      <div class="header row">
+        <span (click)="gotoLogin()" class="back col-sm-1"><i class="fa fa-angle-left angle-left"></i></span>
+        <span class="text-center col-sm-10 customer_name">Alice</span>
       </div>
-    </div>
     <div class="row">
       <div class="chat-container col-md-12">
         <chat-conversation [conversations]="chat_messages" [self]="socket.username"></chat-conversation>

@@ -1,9 +1,9 @@
 <div>
   <ul class="list-group row">
     <div class="col-md-12" *ngFor="let message of conversations">
-      <div class="row">
-        <li class="well list-group-item message col-sm-6" [ngClass]="message.sender == self ? 'pull-right self' : 'other'">
-          <strong>{{message.sender}}</strong> : {{message.query}}
+      <div class="row" [ngClass]="message.sender === self ? 'self' : 'other'">
+        <li class="message">
+           {{message.query}}
         </li>
       </div>
     </div>

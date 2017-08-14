@@ -16,7 +16,6 @@ export class ChatConversationComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log('I am:' + self);
   }
 
 }
