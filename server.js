@@ -34,8 +34,10 @@ app.set('port', port);
  * Create HTTP server.
  */
 const server = require("http").createServer(app);
-const io = socketIO.listen(server);
-
+const io = socketIO.listen(server,{
+	"transports":["polling"],
+	"polling duration":"10"
+});
 /**
  * Listen on provided port, on all network interfaces.
  */
