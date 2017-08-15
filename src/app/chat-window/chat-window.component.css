@@ -10,23 +10,28 @@
 .header {
     height: 2em;
     font-size: 1.2em;
-    padding: 5px;
+    padding: 10px;
     color:#626b7b;
 }
 
-.header i {
+.back i {
     color:#8fc2be;
     font-size: 1.5em;
     cursor: pointer;
 }
 
 .chat-container {
-  height:calc(100vh - 4em - 55px);
+  height:calc(100vh - 4em - 75px);
   overflow: auto;
 }
 
 .chat-input {
     height: 2em;
+    padding: 10px;
+}
+
+#chat-message {
+    box-shadow:none;
 }
 
 #custom-chat-input{
