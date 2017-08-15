@@ -5,7 +5,7 @@
         <span class="text-center col-xs-10 customer_name">Alice</span>
       </div>
     <div class="row">
-      <div class="chat-container col-xs-12">
+      <div #scrollMe class="chat-container col-xs-12">
         <chat-conversation [conversations]="chat_messages" [self]="socket.username"></chat-conversation>
       </div>
     </div>

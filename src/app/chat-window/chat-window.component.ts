@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, AfterViewChecked } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import * as io from 'socket.io-client';
 import { AgentDataService } from "app/agent-data.service";
@@ -9,9 +9,10 @@ import { Router } from "@angular/router";
   templateUrl: './chat-window.component.html',
   styleUrls: ['./chat-window.component.css']
 })
-export class ChatWindowComponent implements OnInit {
+export class ChatWindowComponent implements OnInit, AfterViewChecked {
 
   @ViewChild('chatMessage') input;
+  @ViewChild('scrollMe') private myScrollContainer: ElementRef;
   fallBack = true;
   socket;
   chat_messages=[];
@@ -33,14 +34,27 @@ export class ChatWindowComponent implements OnInit {
       this.socket.on('get_message',(message)=>{
         this.chat_messages.push(message);
       });
+      this.scrollToBottom();
+      
     }
+  }
+
+  ngAfterViewChecked() {        
+      this.scrollToBottom();        
+  } 
+  scrollToBottom(): void {
+      try {
+          this.myScrollContainer.nativeElement.scrollTop = this.myScrollContainer.nativeElement.scrollHeight;
+      } catch(err) { }                 
   }
 
 
   sendMessage(message){
+    if(message.trim() !== ''){
     let body = {query : message,sender:this.socket.username};
     this.socket.emit('new_message',body);
     this.input.nativeElement.value = '';
+    }
   }
 
   gotoLogin() {

@@ -18,4 +18,8 @@ export class ChatConversationComponent implements OnInit {
   ngOnInit() {
   }
 
+  trackByFn(index, item) {
+    return index;
+  }
+
 }

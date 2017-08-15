@@ -1,13 +1,14 @@
+<div class="row">
 <form>
   <div class="group">
     <input [(ngModel)]="agentId" type="text" name="agentId" 
-           [ngClass]="agentId == '' ? '' : 'used'"/>
+           [ngClass]="agentId == '' ? '' : 'used'" (keyup.enter)="redirect()" />
     <span class="highlight"></span><span class="bar"></span>
     <label>AgentID</label>
   </div>
   <div class="group">
     <input [(ngModel)]="password" type="password" name="password" 
-           [ngClass]="password == '' ? '' : 'used'" />
+           [ngClass]="password == '' ? '' : 'used'" (keyup.enter)="redirect()" />
     <span class="highlight"></span><span class="bar"></span>
     <label>Passcode</label>
   </div>
@@ -15,3 +16,4 @@
     <div class="ripples buttonRipples"><span class="ripplesCircle"></span></div>
   </button>
 </form>
+</div>
