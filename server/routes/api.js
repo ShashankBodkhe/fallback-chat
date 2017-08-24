@@ -12,23 +12,23 @@ router.post('/', (req, res) => {
 
 function processRequest(query,callback) {
 
-let request = apiai_client.textRequest(query , {
-  sessionId: Math.floor(Math.random() * 65465132)
-});
+  let request = apiai_client.textRequest(query , {
+    sessionId: 'DUMMY_SESSION'
+  });
 
-request.on('response', (response) => {
-  if(response.result.metadata && response.result.metadata.intentName === "Default Fallback Intent"){
-    callback({'source':'server','fallback':true});
-  }else{
-    callback(response.result);
-  }
-});
+  request.on('response', (response) => {
+    if(response.result.metadata && response.result.metadata.intentName === "Default Fallback Intent"){
+      callback({'source':'server','fallback':true});
+    }else{
+      callback(response.result);
+    }
+  });
 
-request.on('error', (error) => {
-  callback("something went wrong");
-});
+  request.on('error', (error) => {
+    callback("something went wrong");
+  });
 
-request.end();
+  request.end();
 
 }
 
